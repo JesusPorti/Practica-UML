@@ -1,0 +1,242 @@
+Primero Diagrama
+@startuml
+Teclado  " 105..* " <|-- " 1..1 " Tecla
+
+Class Teclado{
+ int nTeclas
+}
+Class Tecla{
+char tecla
+}
+
+@enduml
+
+Segundo Diagrama
+@startuml
+
+
+Class Persona{
+-string nombre
+-int cedula
+-int edad
+}
+
+
+Class Empleados{
+ - string labor
+}
+
+Class Estudiante{
+ - string carrera
+}
+Class Profesor{
+ - string Materia
+}
+Persona  " 1.. 1 " <|-- " 1..1 " Estudiante
+Persona  " 1.. 1 " <|-- " 1..1 " Empleados
+Empleados  " 1.. 1 " <|-- " 1..1 " Profesor
+@enduml
+
+Tercero Diagrama
+@startuml
+
+Class DiscoDuro{
+int memoria
+}
+
+Class Pista{
+}
+
+Class Sector{
+}
+
+DiscoDuro *-- Pista
+Pista *-- Sector
+@enduml
+
+Cuarto Diagrama
+@startuml
+
+class Poligono {
+  int perimetro
+  int area
+}
+
+class Triangulo {
+}
+
+class Lado {
+  int longitud
+}
+
+Poligono <|-- Triangulo
+Triangulo "3" *-- "1" Lado
+
+@enduml
+
+Quinto Diagrama
+@startuml
+
+class Equipo {
+  - nombre: String
+  - ciudad: String
+}
+
+class Jugador {
+  - nombre: String
+  - posicion: String
+  - numero: int
+  - edad: int
+}
+
+class Estadio {
+  - nombre: String
+  - capacidad: int
+  - ubicacion: String
+}
+
+Equipo "1..*" -- "1..1" Jugador : tiene >
+Equipo "1..1" -- "1..1" Estadio : tiene como homeclub >
+
+@enduml
+
+Sexto Diagrama
+@startuml
+class Persona {
+}
+
+class Comité {
+  -coordinador: Persona
+}
+
+Persona "0..*" -- "2..*" Comité
+Comité "1" -- "1" Persona
+
+@enduml
+
+Septimo Diagrama
+@startuml
+class Criterio {
+}
+
+class Caracterización {
+    -criterio: Criterio
+}
+
+class ElementoClasificado {
+    -caracterización: Caracterización
+}
+
+Criterio "1..*" -- "1" Caracterización : fundamenta
+Caracterización "1" -- "1..*" ElementoClasificado : genera
+
+@enduml
+
+Octavo Diagrama
+@startuml
+class Equipo {
+}
+
+class EquipoNuclear {
+}
+
+class Laboratorio {
+}
+
+class LaboratorioNuclear {
+}
+
+Laboratorio "0..*" -- "1" Equipo
+LaboratorioNuclear "0..*" -- "1" EquipoNuclear
+
+LaboratorioNuclear --|> Laboratorio
+
+@enduml
+
+Noveno Diagrama
+@startuml
+class EcuaciónFP {
+    -UFC: float
+    -TCF: float
+}
+
+class TCF {
+    -valoración: float
+}
+
+class SubfactorDeComplejidadTécnica {
+    -Fi: float
+}
+
+EcuaciónFP "1" *-- "1" UFC : primer operando
+EcuaciónFP "1" *-- "1" TCF : segundo operando
+
+TCF "1" -- "14" SubfactorDeComplejidadTécnica : depende de
+
+@enduml
+
+Decimo Diagrama
+@startuml
+class TrabajoDeInvestigación {
+    -título: String
+}
+
+class TEG extends TrabajoDeInvestigación {
+}
+
+class TGM extends TrabajoDeInvestigación {
+}
+
+class Profesor {
+    -nombre: String
+}
+
+class EstudiantePregrado {
+    -nombre: String
+}
+
+class EstudiantePostgrado {
+    -nombre: String
+}
+
+TrabajoDeInvestigación "1" -- "1..2" Profesor : dirigido por
+Profesor "0..*" -- "0..*" TrabajoDeInvestigación : dirige
+
+TEG "1" -- "1..2" EstudiantePregrado : realizado por
+TGM "1" -- "1" EstudiantePostgrado : realizado por
+
+@enduml
+
+Decimo Primer Diagrama
+@startuml
+class DocumentoGráfico {
+}
+
+class Hoja {
+}
+
+class ObjetoDibujo {
+}
+
+class Texto extends ObjetoDibujo {
+}
+
+class Figura2D extends ObjetoDibujo {
+}
+
+class Grupo extends ObjetoDibujo {
+}
+
+class Circulo extends Figura2D {
+}
+
+class Cuadrado extends Figura2D {
+}
+
+DocumentoGráfico "1" *-- "1..*" Hoja : compuesto de
+Hoja "1" *-- "1" ObjetoDibujo : contiene
+Grupo "1" -- "2..*" ObjetoDibujo : consta de
+
+ObjetoDibujo "0..1" -- "0..1" Grupo : miembro de
+
+@enduml

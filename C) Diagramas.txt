@@ -1,0 +1,93 @@
+Primer Diagrama
+@startuml
+class Punto {
+    +cord_x: int
+    +cord_y: int
+}
+
+class Polígono {
+}
+
+Punto "1..*" -- "1" Polígono : contiene
+@enduml
+
+
+Segundo Diagrama
+@startuml
+object T1 {
+    Polígono
+}
+
+object T2 {
+    Polígono
+}
+
+object p1 {
+    Punto
+    cord_x = 0
+    cord_y = 0
+}
+
+object p2 {
+    Punto
+    cord_x = 10
+    cord_y = 0
+}
+
+object p3 {
+    Punto
+    cord_x = 10
+    cord_y = 10
+}
+
+object p4 {
+    Punto
+    cord_x = 0
+    cord_y = 10
+}
+
+T1 -- p1
+T1 -- p2
+T1 -- p3
+
+T2 -- p1
+T2 -- p2
+T2 -- p4
+@enduml
+
+
+Tercer Diagrama
+@startuml
+object Polígono1 {
+    Polígono
+}
+
+object p1 {
+    Punto
+    cord_x = 0
+    cord_y = 0
+}
+
+object p2 {
+    Punto
+    cord_x = 1
+    cord_y = 0
+}
+
+object p3 {
+    Punto
+    cord_x = 0
+    cord_y = 1
+}
+
+object p4 {
+    Punto
+    cord_x = 1
+    cord_y = 1
+}
+
+Polígono1 -- p1
+Polígono1 -- p2
+Polígono1 -- p3
+Polígono1 -- p4
+@enduml

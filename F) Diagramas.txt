@@ -1,0 +1,134 @@
+Diagrama de Clases
+
+@startuml
+class Persona {
+    +nombre: String
+    +telefono: String
+    +direccion: String
+}
+
+class Jugador extends Persona {
+    +numero: int
+    +posicion: String
+}
+
+class Entrenador extends Persona {
+    +nivel_acreditacion: String
+    +años_experiencia: int
+}
+
+class Equipo {
+    +nombre: String
+    +registro: String
+    +capitan: Jugador
+}
+
+class Juego {
+    +localidad: String
+    +puntuacion: String
+}
+
+Equipo "6..20" -- "1" Jugador : tiene
+Equipo "1" -- "0..1" Entrenador : tiene
+Equipo "1" -- "0..*" Juego : compite en
+Juego "2" -- "2" Equipo : participan
+@enduml
+
+
+
+Diagrama de Objetos
+@startuml
+object Jugador1 {
+    nombre = "Juan Pérez"
+    telefono = "123-456-7890"
+    direccion = "Calle Falsa 123"
+    numero = 1
+    posicion = "Libero"
+}
+
+object Jugador2 {
+    nombre = "Luis Gómez"
+    telefono = "321-654-0987"
+    direccion = "Avenida Siempre Viva 456"
+    numero = 2
+    posicion = "Opuesto"
+}
+
+object Jugador3 {
+    nombre = "Carlos Ramírez"
+    telefono = "231-564-7890"
+    direccion = "Calle Nueva 789"
+    numero = 3
+    posicion = "Central"
+}
+
+object EntrenadorVenezuela {
+    nombre = "Pedro Martinez"
+    telefono = "987-654-3210"
+    direccion = "Calle del Sol 321"
+    nivel_acreditacion = "Nivel 3"
+    años_experiencia = 5
+}
+
+object EquipoVenezuela {
+    nombre = "Venezuela"
+    registro = "VEN001"
+    capitan = Jugador1
+}
+
+EquipoVenezuela : tiene -> Jugador1
+EquipoVenezuela : tiene -> Jugador2
+EquipoVenezuela : tiene -> Jugador3
+EquipoVenezuela : tiene -> EntrenadorVenezuela
+
+object Jugador4 {
+    nombre = "Miguel Torres"
+    telefono = "456-789-0123"
+    direccion = "Calle Verde 456"
+    numero = 4
+    posicion = "Punta"
+}
+
+object Jugador5 {
+    nombre = "Diego López"
+    telefono = "654-321-0987"
+    direccion = "Avenida Azul 789"
+    numero = 5
+    posicion = "Colocador"
+}
+
+object Jugador6 {
+    nombre = "Fernando Hernández"
+    telefono = "789-012-3456"
+    direccion = "Calle Amarilla 123"
+    numero = 6
+    posicion = "Central"
+}
+
+object EntrenadorColombia {
+    nombre = "Andrés García"
+    telefono = "654-987-3210"
+    direccion = "Calle Roja 654"
+    nivel_acreditacion = "Nivel 4"
+    años_experiencia = 8
+}
+
+object EquipoColombia {
+    nombre = "Colombia"
+    registro = "COL001"
+    capitan = Jugador4
+}
+
+EquipoColombia : tiene -> Jugador4
+EquipoColombia : tiene -> Jugador5
+EquipoColombia : tiene -> Jugador6
+EquipoColombia : tiene -> EntrenadorColombia
+
+object JuegoPanamericanos {
+    localidad = "Chile"
+    puntuacion = "3-2"
+}
+
+JuegoPanamericanos : participan -> EquipoVenezuela
+JuegoPanamericanos : participan -> EquipoColombia
+@enduml

@@ -1,0 +1,31 @@
+1. ¿Qué significa que el paquete "top" tenga una dependencia con el paquete "controllers"?
+Que el paquete "top" tenga una dependencia con el paquete "controllers" significa que el código dentro del paquete "top" utiliza funcionalidades o clases definidas en el paquete "controllers". Esto implica que cualquier cambio en la API pública del paquete "controllers" puede afectar el funcionamiento del paquete "top".
+
+2. ¿Con cuántos paquetes tiene dependencias el paquete "Threads"? ¿Cuántas dependencias son de entrada y cuántas de salida? ¿Si se hace un cambio en alguna de las clases del paquete "Threads" qué podría suceder?
+Dependencias del paquete "Threads":
+Dependencias de entrada (paquetes de los que "Threads" depende):
+
+controllers
+samplers
+utils
+Total de dependencias de entrada: 3
+
+Dependencias de salida (paquetes que dependen de "Threads"):
+
+top
+Visualizers
+Total de dependencias de salida: 2
+
+Impacto de cambios en el paquete "Threads":
+Si se realiza un cambio en alguna de las clases del paquete "Threads", podría afectar a los paquetes "top" y "Visualizers", ya que dependen de "Threads". Esto puede causar errores o la necesidad de ajustes en los paquetes dependientes para acomodar los cambios.
+
+3. Hablando en términos de modularidad, ¿este diagrama muestra un código con bajo o alto acoplamiento entre los paquetes? ¿Esto es bueno o malo?
+Análisis de modularidad y acoplamiento:
+El diagrama muestra un código con alto acoplamiento entre los paquetes. Muchas flechas de dependencia indican que los paquetes están fuertemente conectados y dependen unos de otros.
+
+Implicaciones:
+Bajo acoplamiento es generalmente preferible en términos de modularidad porque facilita la mantenibilidad, prueba y reutilización de código.
+Alto acoplamiento puede ser problemático porque:
+Hace que el sistema sea más difícil de entender y mantener.
+Cambios en un paquete pueden tener un efecto dominó en muchos otros paquetes.
+Aumenta la complejidad y la probabilidad de introducir errores.

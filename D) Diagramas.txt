@@ -1,0 +1,55 @@
+@startuml
+object Exp1 {
+    Expresión
+    operador_binario = "/"
+}
+
+object Exp2 {
+    Expresión
+    operador_binario = "+"
+}
+
+object Exp3 {
+    Expresión
+    operador_binario = "/"
+}
+
+object Exp4 {
+    Expresión
+    operador_binario = "+"
+}
+
+object VarX {
+    Variable
+    nombre = "x"
+}
+
+object VarY {
+    Variable
+    nombre = "y"
+}
+
+object Const2 {
+    Constante
+    valor = 2
+}
+
+object Const3 {
+    Constante
+    valor = 3
+}
+
+Exp1 : "1er op" --> Exp2
+Exp1 : "2do op" --> Exp3
+
+Exp2 : "1er op" --> VarX
+Exp2 : "2do op" --> Exp4
+
+Exp4 : "1er op" --> VarY
+Exp4 : "2do op" --> Const2
+
+Exp3 : "1er op" --> VarX
+Exp3 : "2do op" --> VarY
+Exp3 : "2do op" --> Const3
+
+@enduml
